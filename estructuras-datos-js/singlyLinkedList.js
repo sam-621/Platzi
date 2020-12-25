@@ -67,11 +67,11 @@ class SinglyLinkedList {
 		return this;
 	}
 	getNodeByIndex(index) {
-		if (index > this.length || index < this.length) {
+		if (index > this.length || index <= 0) {
 			return { currentNode: null, lastNode: null };
 		}
 		let count = 1;
-		let controlNode = this.head;
+		let controlNode = this.head; //empezamos a recorrer la lista desde el head
 		while (count < index - 1) {
 			controlNode = controlNode.next;
 			count++;
@@ -79,6 +79,18 @@ class SinglyLinkedList {
 		const lastNode = controlNode;
 		const currentNode = controlNode.next;
 		return { currentNode, lastNode };
+	}
+	moveToTail(index) {
+		const { currentNode, lastNode } = this.getNodeByIndex(index);
+		if (!currentNode && !lastNode) {
+			return "No available index";
+		}
+
+		lastNode.next = currentNode.next;
+		this.tail.next = currentNode;
+		this.tail = currentNode;
+		currentNode.next = null;
+		return this;
 	}
 }
 
