@@ -1,3 +1,10 @@
+/*
+LIFO
+-  this.top
+-  
+-  this.bottom
+*/
+
 class NewNode {
 	constructor(value) {
 		this.value = value;
