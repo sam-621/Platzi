@@ -35,6 +35,7 @@ class Queue {
 		return this;
 	}
 
+	//quita el primero
 	dequeue() {
 		if (this.length === 0) {
 			return this;
