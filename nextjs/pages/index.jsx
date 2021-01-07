@@ -1,10 +1,15 @@
 import React from 'react';
 
+import NavBar from '../components/navbar/NavBar';
+
 const index = () => {
 	return (
-		<div>
-			<h1>Home</h1>
-		</div>
+		<>
+			<NavBar />
+			<div>
+				<h1>Home</h1>
+			</div>
+		</>
 	);
 };
 

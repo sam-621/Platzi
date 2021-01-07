@@ -1,12 +1,17 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 
+import NavBar from '../../components/navbar/NavBar';
+
 const ProductItem = () => {
 	const { id } = useRouter().query;
 	return (
-		<div>
-			<h1>{id}</h1>
-		</div>
+		<>
+			<NavBar />
+			<div>
+				<h1>{id}</h1>
+			</div>
+		</>
 	);
 };
 

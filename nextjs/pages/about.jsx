@@ -1,10 +1,15 @@
 import React from 'react';
 
+import NavBar from '../components/navbar/NavBar';
+
 const about = () => {
 	return (
-		<div>
-			<h1>About</h1>
-		</div>
+		<>
+			<NavBar />
+			<div>
+				<h1>About</h1>
+			</div>
+		</>
 	);
 };
 
