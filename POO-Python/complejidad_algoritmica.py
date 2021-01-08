@@ -29,3 +29,7 @@ if __name__ == '__main__':
     factorial_r(n)
     final = time.time()
     print(final - comienzo)
+
+# Un loop => crecimiento lineal.
+# Un loop dentro de otro => crecimiento cuadratico
+# Llamadas recursivas => crecimiento exponecncial.
