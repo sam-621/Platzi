@@ -11,17 +11,17 @@ if __name__ == '__main__':
     fig = figure()
 
     print('f(x) = x^2')
-    points = int(input('How many point do you want to have you graphic? '))
 
     x = []
     y = []
+    i = -100
 
-    for i in range(points):
-        x_value = int(input('Digit the x value: ')) 
+    while i <= 100:
+        i = i + 0.1 
 
-        y_value = quadratic_function(x_value)
+        y_value = quadratic_function(i)
 
-        x.append(x_value)
+        x.append(i)
         y.append(y_value)
     
     fig.line(x, y, line_width=2)
