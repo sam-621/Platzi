@@ -1,0 +1,7 @@
+a::after {
+	transition: 1s;
+	content: '->';
+}
+.div > p {
+	color: red;
+}
