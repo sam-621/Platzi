@@ -1,13 +1,14 @@
 import time
 
+# factorial(n) = 2(n-1) + 2 
 def factorial(n):
-    respuesta = 1
+    respuesta = 1 #1
 
-    while n > 1:
-        respuesta *= n
-        n -= 1
+    while n > 1: #n-1
+        respuesta *= n #1
+        n -= 1 #1
 
-    return respuesta
+    return respuesta #1
 
 
 def factorial_r(n):
@@ -18,7 +19,7 @@ def factorial_r(n):
 
 
 if __name__ == '__main__':
-    n = 1000
+    n = 950
 
     comienzo = time.time()
     factorial(n)
