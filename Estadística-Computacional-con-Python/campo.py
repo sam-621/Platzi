@@ -1,17 +1,18 @@
 class Campo:
 
-  def __init__(self):
-    self.drunk_cordinates = {}
+    def __init__(self):
+        self.coordenadas_de_borrachos = {}
 
-  def add_drunk(self, drunk, cordinate):
-    self.drunk_cordinates[drunk] = coordinate
+    def anadir_borracho(self, borracho, coordenada):
+        self.coordenadas_de_borrachos[borracho] = coordenada
 
-  def move_drunk(drunk):
-    delta_x, delta_y = drunk.walk()
-    current_cordinate = self.drunk_cordinates[drunk]
-    new_cordinate = current_cordinate.move(delta_x, delta_y)
+    def mover_borracho(self, borracho):
+        delta_x, delta_y = borracho.camina()
+        coordenada_actual = self.coordenadas_de_borrachos[borracho]
+        nueva_coordenada = coordenada_actual.mover(delta_x, delta_y)
 
-    self.drunk_cordinates[drunk] = new_cordinate
+        self.coordenadas_de_borrachos[borracho] = nueva_coordenada
 
-  def get_coordinate(self, drunk):
-    return self.drunk_cordinates[drunk]
+    def obtener_coordenada(self, borracho):
+        return self.coordenadas_de_borrachos[borracho]
+    

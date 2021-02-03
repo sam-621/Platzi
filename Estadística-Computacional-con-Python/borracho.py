@@ -1,13 +1,15 @@
 import random
 
-class Drunk: 
-  def __init__(self, name):
-    self.name = name
+class Borracho:
 
-    
-class Traditional_Drunk:
-  def __init__(self, name):
-    super().__init__(name)
+    def __init__(self, nombre):
+        self.nombre = nombre
 
-  def walk():
-    return random.choice([(0, 1), (0, -1), (1, 0), (-1, 0)])
+
+class BorrachoTradicional(Borracho):
+
+    def __init__(self, nombre):
+        super().__init__(nombre)
+
+    def camina(self):
+        return random.choice([(0, 1), (0, -1), (1, 0), (-1, 0)])
