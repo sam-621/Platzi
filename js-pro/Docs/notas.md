@@ -14,3 +14,11 @@ para leer y ejecutar el javascript
 Esto lo que hace es que pone tu script al final del documento,
 y tiene el mismo comportamiento que el **async**, 
 pero este funciona con scripts internos o externos
+
+# Scope
+
+Existen 4 scopes
+- Global scope
+- Function scope
+- Block scope
+- Module scope
