@@ -22,3 +22,9 @@ Existen 4 scopes
 - Function scope
 - Block scope
 - Module scope
+
+# Clousures
+
+
+
+https://developer.mozilla.org/es/docs/Web/JavaScript/Closures
