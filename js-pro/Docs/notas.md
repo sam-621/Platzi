@@ -25,6 +25,22 @@ Existen 4 scopes
 
 # Clousures
 
-
+Es una técnica para emular el tener métodos y variables privados
+```js
+function makeCounter(n) {
+  let count = n;
+  return {
+    increase: function() {
+      count = count + 1;
+    },
+    decrease: function() {
+      count = count - 1;
+    },
+    getCount: function() {
+      return count;
+    },
+  };
+}
+```
 
 https://developer.mozilla.org/es/docs/Web/JavaScript/Closures
