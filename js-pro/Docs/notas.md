@@ -177,3 +177,31 @@ danielSaluda();
 const danielCamina = caminar.bind(daniel, 2000);
 danielCamina('oeste');
 ```
+
+# Prototype
+E sólo un objeto vacio, el cual todos los objetos de js tiene,
+
+`Object.create(objeto)` crea una instancia del objeto que le pasamos
+
+## New
+
+La keyword new lo que hace es que nos evita el `Object.create(objeto)` y nos agrega el this
+
+```js
+function Hero(name) {
+  // this = Object.create(Hero.prototype);
+  this.name = name;
+  // return this;
+}
+
+Hero.prototype.saludar = function() {
+  console.log(`New: ${this.name}`);
+};
+
+const zelda = new Hero('Zelda');
+zelda.saludar();
+```
+como se ve no necesitamos crear usar `Object.create` y tampoco debemos retornar nada,
+ya que new lo hace por nosotros.
+
+`new` es sólo una ayuda, nada mas. en programacion se llama a esto azucar sintáctico
