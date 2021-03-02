@@ -131,3 +131,49 @@ Person.prototype.saludar = function() {
 const person = new Person('Rogelio');
 person.saludar() //Hola, me llamo Rogelio
 ```
+
+# call - aply - bind
+
+Los tres son métodos que definen this pero de maneras diferentes
+
+- call
+Define `this` y ejecuta la funcion
+`funcion.call(thisArg, arg1, arg2, ..., argn)`
+
+```js
+function saludar() {
+  console.log(`Hola. Soy ${this.name} ${this.apellido}`);
+}
+
+const richard = {
+  name: 'Richard',
+  apellido: 'Kaufman López',
+};
+
+saludar.call(richard)
+//caminar.call(richard, 400, 'norte');
+```
+
+Aquí, saludar está utilizando this, pero en el contexto que lo usa(global) no existen las propiedades name y apellido
+Pero con call nosotros podemos definir `this`, en este caso le decimos que el objeto richard será `this`
+
+- aply
+Lo mismo que call pero en ves de recibir argumento dividido por comas lo recibe en un arreglo
+```js
+const valores = [800, 'noreste'];
+caminar.apply(richard, valores);
+```
+
+- bind
+Con `bind` también podemos definir `this` pero esta no ejecuta la funcion
+sino que devuelbe otra funcion la cual ya tiene this como nosotros se lo pasamos
+
+```js
+const daniel = { name: 'Daniel', apellido: 'Sánchez' };
+const danielSaluda = saludar.bind(daniel);
+danielSaluda();
+
+//mas argumentos
+const danielCamina = caminar.bind(daniel, 2000);
+danielCamina('oeste');
+```
