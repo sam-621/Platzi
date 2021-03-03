@@ -179,7 +179,7 @@ danielCamina('oeste');
 ```
 
 # Prototype
-E sólo un objeto vacio, el cual todos los objetos de js tiene,
+Es sólo un objeto, el cual todos los objetos de js tiene,
 
 `Object.create(objeto)` crea una instancia del objeto que le pasamos
 
@@ -205,3 +205,53 @@ como se ve no necesitamos crear usar `Object.create` y tampoco debemos retornar 
 ya que new lo hace por nosotros.
 
 `new` es sólo una ayuda, nada mas. en programacion se llama a esto azucar sintáctico
+
+# Herencia prototipal
+Aquí se entenderá un poco mas que es el prototype, ejemplo
+```js
+//Creamos una funcion (que al final es un objeto en js)
+function Persona() {
+  this.name = 'Rogelio';
+  this.age = 18;
+}
+
+//A la funcion le agregamos un metodo saludar
+//Pero se agrega atraves del prototype
+//cada instancia tendrá en su prototype el atributo saludar 
+Persona.prototype.saludar = function() {
+  console.log('Hola mi nombre es ', this.name)
+}
+
+const persona = new Persona();
+cosole.log(persona) //{name: 'Rogelio', age: 18, __proto__: Object}
+cosole.log(persona.__proto__) //{saludar: f(), constructor: f Persona(), __proto__: Object}
+```
+Como se ve el atrubuto saludar no está en primera linea, sino que está dentro del prototype del objeto persona
+
+Ahora como podríamos llamar a la funcion saludar? intuitivamente sería así
+```js
+persona.saludar() //Hola mi nombre es Rogelio
+```
+E impresionantemente esto funciona, pero porque?
+ya vimos que el metodo saludar está dentro de la propiedad `__proto__`
+En teoria para poder acceder a el sería 
+```js
+persona.__proto__.saludar()
+```
+
+El hecho de que funcione, a eso se le llama herencia prototipal.
+Cuando mandemos llamar una propiedad de un objeto en js
+él buscara primero a ver si está en primera linea, si no está buscará en el prototype del objeto
+y si ve que no está buscará entinces en el prototype del prototype y asñi susecivamente hasta llegar a Object
+el cual su prototype es null, es poreso que podemos llamar la funcion saludar así
+```js
+persona.saludar()
+```
+Ya que al ver que noe stá en primera linea, va y busca dentro del prototype y ahí lo encuentra.
+
+La forma corecta de obtener el prototipo de un objeto es:
+```js
+const protoPersona = Object.getPrototypeOf(persona)
+console.log(protoPersona) //{saludar: f(), constructor: f Persona(), __proto__: Object}
+```
+Ya que el atributo `__proto__` puede cambiar dependiendo el borwser, node y tal
