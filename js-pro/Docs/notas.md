@@ -255,3 +255,8 @@ const protoPersona = Object.getPrototypeOf(persona)
 console.log(protoPersona) //{saludar: f(), constructor: f Persona(), __proto__: Object}
 ```
 Ya que el atributo `__proto__` puede cambiar dependiendo el borwser, node y tal
+
+# Promises
+- races: la mas rapida
+- all: todas, si una falla ninguna se ejecuta
+- forloop: una por una
