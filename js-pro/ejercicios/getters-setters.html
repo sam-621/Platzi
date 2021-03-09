@@ -30,7 +30,10 @@
     ///////////////////////// setter /////////////////////////
     const myObject2 = {
       set latest (value) {
+        if(value === 0) return "incorrect value"
+
         this.log.push(value)
+
       },
       log: [],
     }
