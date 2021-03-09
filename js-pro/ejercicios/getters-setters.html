@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Getters and setters</h1>
+  <script>
+    ///////////////////////// getter /////////////////////////
+    const myObject1 = {
+      get latest () {
+        if (this.log.length > 0) {
+          return this.log[this.log.length - 1];
+        }
+        else {
+          return null;
+        }
+      },
+      log: [1,2,3,4,5,6],
+      a: 1,
+      get get_a() {
+        return this.a
+      }
+    }
+    ///////////////////////// getter /////////////////////////
+
+    ///////////////////////// setter /////////////////////////
+    const myObject2 = {
+      set latest (value) {
+        this.log.push(value)
+      },
+      log: [],
+    }
+    ///////////////////////// setter /////////////////////////
+  </script>
+</body>
+</html>
