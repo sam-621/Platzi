@@ -12,3 +12,9 @@ const player = new MediaPlayer({
 
 button1.onclick = () => (player.media.paused ? player.play() : player.pause());
 button2.onclick = () => (player.media.muted ? player.unMute() : player.mute());
+
+if ('serviceWorker' in navigator) {
+	navigator.serviceWorker.register('/sw.js').catch((err) => {
+		console.log(err);
+	});
+}
