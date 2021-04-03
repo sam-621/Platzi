@@ -4,6 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
+const DotenvWebpackPlugin = require('dotenv-webpack');
 
 /** @type {import('webpack').Configuration} */
 module.exports = {
@@ -20,7 +21,7 @@ module.exports = {
 			'@templates': path.resolve(__dirname, 'src/templates'),
 			'@styles': path.resolve(__dirname, 'src/styles'),
 			'@images': path.resolve(__dirname, 'src/assets/images'),
-		}
+		},
 	},
 	module: {
 		rules: [
@@ -61,7 +62,7 @@ module.exports = {
 			scriptLoading: 'defer',
 		}),
 		new MiniCssExtractPlugin({
-			filename: 'assets/[name].[contenthash].css'
+			filename: 'assets/[name].[contenthash].css',
 		}),
 		new CopyPlugin({
 			patterns: [
@@ -71,12 +72,10 @@ module.exports = {
 				},
 			],
 		}),
+		new DotenvWebpackPlugin(),
 	],
 	optimization: {
 		minimize: true,
-		minimizer: [
-			new CssMinimizerPlugin(),
-			new TerserPlugin(),
-		]
-	}
+		minimizer: [new CssMinimizerPlugin(), new TerserPlugin()],
+	},
 };
